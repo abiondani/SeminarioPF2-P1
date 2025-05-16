@@ -1,0 +1,17 @@
+services:
+    web:
+        image: abiondani/apache-php-pfo2:latest
+        ports:
+            - "8080:80"
+        depends_on:
+            - mysql
+
+    mysql:
+        image: abiondani/mysql-pfo2:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: 1234
+        volumes:
+            - dbdata:/var/lib/mysql
+
+volumes:
+    dbdata:
